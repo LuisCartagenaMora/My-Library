@@ -2,7 +2,6 @@ import db from "../models/db.js";
 import { currentUser } from "./authController.js";
 import { getCoverURL } from "../utils/getCoverURL.js";
 import { allInfo } from "../utils/allInfo.js";
-import { alert } from "alert";
 
 let state = [{ title: true }, { rating: true }, { date: true }];
 
