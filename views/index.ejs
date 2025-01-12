@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="stylesheet" href="..\css\book.css" type="text/css" />
+  </head>
+  <body>
+    <%- include ('partials/header.ejs', {name : name, books : books}) %>
+    <div class="books-container">
+      <%for(let book of books){ %>
+      <div class="book-card">
+        <div class="content-container">
+          <img class="flex-image" src="<%= book.cover %>" /> <br />
+          <div class="flex-container">
+            <h2 class="flex-title">
+              <%= book.title.length > 40 ? book.title.slice(0,40) + "..." :
+              book.title %>
+            </h2>
+            <h4 class="flex-info">
+              Date: <%= book.date %> | Rating: <%= book.rating %>/10
+            </h4>
+            <h3 class="flex-note"><%= book.note %></h3>
+          </div>
+        </div>
+        <p>
+          You may read more reviews or buy this book
+          <a href="<%= book.link %>" target="”_blank”">here</a>.
+        </p>
+        <div class="button-container">
+          <form action="/delete-book" method="POST">
+            <button
+              id="book-btn"
+              type="submit"
+              name="delete"
+              value="<%= book.id %>"
+            >
+              Delete
+            </button>
+          </form>
+          <form action="/update-book" method="GET">
+            <button
+              id="book-btn"
+              type="submit"
+              name="update"
+              value="<%= book.id %>"
+            >
+              Update
+            </button>
+          </form>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+  </body>
+</html>

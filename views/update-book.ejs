@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="..\css\update-book.css" type="text/css" />
+  </head>
+  <body>
+    <div id="body-container" class="body-container">
+      <h1 class="header">Update information</h1>
+      <p class="info">Update the information you think necessary.</p>
+      <div class="form-container">
+        <div class="info-container">
+          <form action="/update-book" , method="POST">
+            <% for (let book of books){ %>
+            <label id="info-titles" vfor="title">Title</label><br />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value="<%= book.title %>"
+            />
+            <br />
+            <label id="info-titles" for="isbn"
+              >ISBN code (To find this code go this
+              <a href="https://www.bookfinder.com/?">LINK</a>)</label
+            ><br />
+            <input type="text" id="isbn" name="isbn" value="<%= book.isbn %>" />
+            <br />
+            <label id="info-titles" for="date">Date when book was read</label
+            ><br />
+            <input type="text" id="date" name="date" value="<%= book.date %>" />
+            <br />
+            <label id="info-titles" for="rating">Your rating</label><br />
+            <select name="rating" id="rating">
+              <% for(let i = 0; i < 11 ; i++){ %>
+              <option value="<%= i %>" selected="<%= book.rating %>">
+                <%= i %>
+              </option>
+              <% } %>
+            </select>
+            <br />
+            <br />
+            <label id="info-titles" for="note"
+              >Give a short summary on what the books was about (Limit: 255
+              characters)</label
+            ><br />
+            <textarea type="text" id="note" name="note">
+<%= book.note %>
+      </textarea
+            >
+            <br />
+            <label id="info-titles" for="link">Link</label><br />
+            <input type="text" id="link" name="link" value="<%= book.link %>" />
+            <br />
+            <input type="hidden" name="id" value="<%= book.id %>" />
+            <input class="update-btn" type="submit" value="Update" />
+            <% } %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+  </body>
+</html>

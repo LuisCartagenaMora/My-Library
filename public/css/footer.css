@@ -1,0 +1,19 @@
+/* <body>
+    <div class="footer-container">
+      <p>Created on 2024 by Luis Cartagena Mora</p>
+    </div>
+  </body>*/
+
+.footer-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #262c3f;
+  text-align: center;
+  border-top: 10px solid #5c5959;
+}
+
+.footer-date {
+  color: white;
+}

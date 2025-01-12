@@ -1,0 +1,487 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-attachment: fixed;
+}
+
+/* COmbination of fadeIn and slideIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes linearFlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.books {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 200px 0;
+}
+
+.top-books {
+  display: inline-block;
+  animation: 30s linearFlow infinite linear;
+}
+
+#flex-img {
+  width: 1fr;
+  height: 250px;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding-right: 50px;
+  animation: fadeIn 2s;
+}
+
+.home-container {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: min-content;
+  padding: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min-content;
+  padding: 1rem;
+  border-style: groove;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.register-container h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.register-container p {
+  margin-top: 8px;
+  padding-left: 5px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  width: min-content;
+  padding: 1rem;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.login-container h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.login-container p {
+  margin-top: 8px;
+  padding-left: 5px;
+}
+
+#btn {
+  background-color: #da8359;
+  color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: 0;
+  padding: 5px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+#btn:hover {
+  background-color: hsl(20, 33%, 48%);
+  color: white;
+}
+
+#inpt {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
+
+@media screen and (max-width: 2220px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-attachment: fixed;
+  }
+
+  @keyframes fadeInUpwards {
+    from {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .books {
+    padding-top: 0;
+  }
+
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: row;
+    border: 0;
+    gap: 1em;
+  }
+
+  .register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min-content;
+    padding: 1rem;
+    border: 2px solid grey;
+    border-radius: 5px;
+    animation: fadeInUpwards 2s;
+  }
+
+  .login-container {
+    border: 2px solid grey;
+    border-radius: 5px;
+    animation: fadeInUpwards 2s;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds space between elements */
+    width: 300px; /* Optional: Set a width for the form */
+    margin: 0 auto; /* Center the form horizontally on the page */
+  }
+}
+
+/* Half-Monitor view  */
+@media screen and (max-width: 1281px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-attachment: fixed;
+  }
+
+  @keyframes fadeInUpwards {
+    from {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .books {
+    padding-top: 0;
+  }
+
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: row;
+    border: 0;
+    gap: 1em;
+  }
+
+  .register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min-content;
+    padding: 1rem;
+    border: 2px solid grey;
+    border-radius: 5px;
+    animation: fadeInUpwards 2s;
+  }
+
+  .login-container {
+    border: 2px solid grey;
+    border-radius: 5px;
+    animation: fadeInUpwards 2s;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds space between elements */
+    width: 300px; /* Optional: Set a width for the form */
+    margin: 0 auto; /* Center the form horizontally on the page */
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-attachment: fixed;
+  }
+
+  @keyframes fadeInUpwards {
+    from {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .books {
+    padding-top: 0;
+  }
+
+  .message-container {
+    max-width: 80vw;
+    font-size: 15px;
+  }
+
+  .info-container {
+    border: 0;
+    gap: 1rem;
+  }
+
+  .register-container {
+    max-width: 80vw;
+    font-size: 12px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    animation: fadeInUpwards 2s;
+  }
+
+  .login-container {
+    max-width: 80vw;
+    font-size: 12px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    animation: fadeInUpwards 2s;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds space between elements */
+    width: 300px; /* Optional: Set a width for the form */
+    margin: 0 auto; /* Center the form horizontally on the page */
+  }
+}
+
+@media screen and (max-width: 801px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-attachment: fixed;
+  }
+
+  @keyframes fadeInUpwards {
+    from {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .books {
+    padding-top: 0;
+  }
+
+  .message-container {
+    max-width: 80vw;
+    font-size: 13px;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    gap: 1rem;
+  }
+
+  .register-container {
+    max-width: 80vw;
+    font-size: 12px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    animation: fadeInUpwards 2s;
+  }
+
+  .login-container {
+    max-width: 80vw;
+    font-size: 12px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    animation: fadeInUpwards 2s;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds space between elements */
+    width: 300px; /* Optional: Set a width for the form */
+    margin: 0 auto; /* Center the form horizontally on the page */
+  }
+}
+
+/* Mobile view */
+@media screen and (max-width: 600px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-attachment: fixed;
+  }
+
+  @keyframes fadeInUpwards {
+    from {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .books {
+    padding-top: 0;
+  }
+
+  .message-container {
+    max-width: 80vw;
+    font-size: 11px;
+  }
+
+  .info-container {
+    border: 0;
+    gap: 1rem;
+  }
+
+  .register-container {
+    max-width: 80vw;
+    font-size: 12px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    animation: fadeInUpwards 2s;
+  }
+
+  .login-container {
+    max-width: 80vw;
+    font-size: 12px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    animation: fadeInUpwards 2s;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds space between elements */
+    width: 300px; /* Optional: Set a width for the form */
+    margin: 0 auto; /* Center the form horizontally on the page */
+  }
+}

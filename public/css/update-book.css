@@ -1,0 +1,76 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.body-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  margin-top: 100px;
+  flex-direction: column;
+  justify-self: center;
+  width: fit-content;
+  border: 2px solid grey;
+  border-radius: 5%;
+}
+
+#title,
+#isbn,
+#date {
+  width: 100%;
+}
+
+#info-titles {
+  font-weight: 600;
+}
+
+input {
+  margin-bottom: 15px;
+  border: 1px solid;
+  border-radius: 3px;
+  width: 50%;
+}
+
+textarea {
+  resize: none;
+  display: block;
+  height: 60px;
+  width: 100%;
+}
+
+.update-btn {
+  background-color: #da8359;
+  height: 30px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.update-btn:hover {
+  background-color: hsl(20, 33%, 48%);
+}
+
+.header {
+  margin-bottom: 0;
+}
+
+.info {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .body-container {
+    max-width: 70vw;
+    font-size: 12px;
+  }
+}

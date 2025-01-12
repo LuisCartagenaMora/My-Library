@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="..\css\home.css" type="text/css" />
+  </head>
+  <body>
+    <div class="books">
+      <div class="home-container">
+        <div class="message-container">
+          <h1>Welcome to My Library</h1>
+          <p>
+            This space is for you and only for yourself. You can add every book
+            you've read or are reading.
+          </p>
+        </div>
+        <!-- This image was obtained in pixabay and was provided by Duckleap -->
+        <!-- <img src="Capstone 5- Book Notes\public\imgs\cofee-woman.png" /> -->
+
+        <div class="info-container">
+          <div class="register-container">
+            <h1>Register</h1>
+            <p>Start adding books by creating your account</p>
+            <form id="form" action="/register" method="POST">
+              <input id="inpt" name="firstname" placeholder="First name" />
+              <input id="inpt" name="lastname" placeholder="Last name" />
+              <input id="inpt" name="email" placeholder="Email" />
+              <input id="inpt" name="password" placeholder="Password" />
+              <input id="btn" type="submit" value="Register" />
+            </form>
+          </div>
+
+          <div class="login-container">
+            <h1>Login</h1>
+            <p>Welcome back, glad to see you again</p>
+            <form id="form" action="/login" method="POST">
+              <input id="inpt" name="email" placeholder="Email" />
+              <input id="inpt" name="password" placeholder="Password" />
+              <input id="btn" type="submit" value="Login" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="top-books">
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780439023481-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780307744432-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780735219106-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780590353427-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780375842207-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780156027328-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9781524763138-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780399590504-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9781400052189-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780399588198-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780307352156-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780316017930-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780316346627-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9781451648539-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780374533557-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg"
+        />
+        <img
+          id="flex-img"
+          src="https://covers.openlibrary.org/b/isbn/9780060838676-L.jpg"
+        />
+      </div>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+    <script>
+      var copy = document.querySelector(".top-books").cloneNode(true);
+      document.querySelector(".books").appendChild(copy);
+    </script>
+  </body>
+</html>

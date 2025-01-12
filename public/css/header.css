@@ -1,0 +1,168 @@
+/*<body>
+    <div id="user-container">
+      <h1>Welcome to <%= name.split(' ')[0] %>'s Collection</h1>
+      <div id="search-bar">
+        <input type="text" name="search" placeholder="Search.." />
+        <button type="submit" name="search">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <a href="../logout">Logout</a>
+    </div>
+
+    <div id="description-container">
+      <p>
+        This is your personal collection of books, you have a total of <%=
+        books.length %> books!
+      </p>
+      <a href="../add-book">Add book</a>
+    </div>
+
+    <div id="filter-container">
+      <p>You can filter the books by...</p>
+      <form action="/filter" method="GET">
+        <button class="filter-button" value="title" name="type">title</button>
+        <button class="filter-button" value="rating" name="type">rating</button>
+        <button class="filter-button" value="date" name="type">date</button>
+        <script
+          src="https://kit.fontawesome.com/yourcode.js"
+          crossorigin="anonymous"
+        ></script>
+      </form>
+    </div>
+  </body>*/
+
+/* 
+green - #A5B68D
+crema - #ECDFCC
+white - #FCFAEE
+orange - #DA8359
+*/
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+#user-container {
+  display: grid;
+  /* Change to grid-template-columns: 1fr 1fr 1fr; IF YOU WANT TO ADD THE SEARCH BAR*/
+  grid-template-columns: 1fr 1fr;
+  justify-content: left;
+  background-color: #262c3f;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 10px solid #5c5959;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* ADD BACK IN IF YOU WANT TO ADD THE SEARCH BAR and improve :) */
+/* #search-bar {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+#search-bar input {
+  height: 40px;
+
+  width: 150px;
+  border-style: hidden;
+}
+
+#search-bar button {
+  height: 42px;
+  width: 45px;
+  border-style: hidden;
+} */
+
+#user-container a {
+  background-color: white;
+  color: #333;
+  justify-self: right;
+  align-self: center;
+  padding: 4px;
+  border-radius: 10px;
+  border: 0;
+  text-decoration: none;
+}
+
+#user-container a:hover {
+  background-color: rgba(255, 255, 255, 0.745);
+}
+
+#user-container h1 {
+  color: white;
+}
+
+#addBook-btn {
+  background-color: #da8359;
+  color: #333;
+  justify-self: right;
+  align-self: center;
+  padding: 4px;
+  width: 75px;
+  border-radius: 10px;
+  border: 0;
+  text-decoration: none;
+}
+
+#addBook-btn:hover {
+  background-color: hsl(20, 33%, 48%);
+}
+
+#description-container a:hover {
+  background-color: hsl(20, 33%, 48%);
+}
+
+.filter-button {
+  background-color: #da8359;
+  color: #333;
+  justify-self: right;
+  align-self: center;
+  padding: 4px;
+  width: 75px;
+  border-radius: 10px;
+  border: 0;
+  text-decoration: none;
+}
+
+.filter-button:hover {
+  background-color: hsl(20, 33%, 48%);
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 1fr;
+}
+
+.line {
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  padding: 1rem;
+  width: 100vw;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="..\css\header.css" type="text/css" />
+  </head>
+  <body>
+    <div id="user-container">
+      <h1>Welcome to <%= name %>'s Collection</h1>
+      <!-- <div id="search-bar">
+        <input type="text" name="search" placeholder="Search.." />
+        <button type="submit" name="search">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </button>
+      </div> -->
+
+      <a href="../logout">Logout</a>
+    </div>
+
+    <div class="info-container">
+      <div id="description-container">
+        <p>
+          <% if(books.length !== 0){ %> This is your personal collection of
+          books, you have a total of <%= books.length %> books! <% }else{ %>
+          Begin your collection by adding a book. <% } %>
+        </p>
+        <form action="/add-book" method="GET">
+          <button id="addBook-btn">Add book</button>
+        </form>
+
+        <!-- <a id="addBook-btn" href="../add-book">Add book</a> -->
+      </div>
+
+      <div id="filter-container">
+        <p>You can filter the books by...</p>
+        <form action="/filter" method="GET">
+          <button class="filter-button" value="title" name="type">title</button>
+          <button class="filter-button" value="rating" name="type">
+            rating
+          </button>
+          <button class="filter-button" value="date" name="type">date</button>
+        </form>
+      </div>
+    </div>
+    <div class="line"></div>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="header.css" type="text/css" />
+  </head>
+  <body id="body" class="body">
+    <div id="user-container">
+      <h1>Welcome to <%= name %>'s Collection</h1>
+      <div id="search-bar">
+        <input type="text" name="search" placeholder="Search.." />
+        <button type="submit" name="search">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <a href="../logout">Logout</a>
+    </div>
+
+    <div class="info-container">
+      <div id="description-container">
+        <p>
+          <% if(books.length !== 0){ %> This is your personal collection of
+            books, you have a total of <%= books.length %> books! <% }else{ %>
+            Begin your collection by adding a book. <% } %>
+          </p>
+          <button id="addBook-btn" onclick="openModal()">Add book</button>
+        </div>
+  
+        <div id="filter-container">
+          <p>You can filter the books by...</p>
+          <form action="/filter" method="GET">
+            <button class="filter-button" value="title" name="type">title</button>
+            <button class="filter-button" value="rating" name="type">
+              rating
+            </button>
+            <button class="filter-button" value="date" name="type">date</button>
+          </form>
+        </div>
+      </div>
+      <div class="line"></div>
+  
+      <div id="modal-container" class="modal-container hide blur">
+        <div id="btn">
+          <button class="close-btn" onclick="closeModal()"><h2>X</h2></button>
+        </div>
+        <h1 id="modal-text">Add to the collection</h1>
+        <p id="modal-text">
+          Insert all the necessary information to add a new book to the list.
+        </p>
+        <div class="info-container">
+          <form action="/add" method="POST">
+            <label id="modal-text" for="title">Title</label>
+            <input type="text" id="title" name="title" />
+            <br />
+            <label id="modal-text" for="date">Date when book was read</label>
+            <input type="text" id="date" name="date" />
+            <br />
+            <label id="modal-text" for="rating">Your rating</label>
+            <select name="rating" id="rating">
+              <% for(let i = 0; i < 11 ; i++){ %>
+              <option value="<%= i %>"><%= i %></option>
+              <% } %>
+            </select>
+            <br />
+            <label id="modal-text" for="note"
+              >Give a short summary on what the books was about (Limit: 255
+              characters)</label
+            >
+  
+            <textarea type="text" id="note" name="note"> </textarea>
+            <br />
+            <label id="modal-text" for="link">Link</label>
+            <input type="text" id="link" name="link" />
+            <br />
+            <input type="submit" value="Add book" />
+          </form>
+        </div>
+  
+        <h1 id="modal-text">Cover Lookup</h1>
+        <form>
+          <label id="modal-text">ISBN: </label>
+          <input placeholder="Enter isbn..." id="isbn" name="isbn" />
+          <button id="submit-btn" value="isbn">Submit</button>
+        </form>
+        <h5 id="modal-text">
+          To find a books isbn number
+          <a href="https://www.bookfinder.com/?" target="_blank">click here</a>
+        </h5>
+      </div>
+      <script type="text/javascript">
+        let mc = document.getElementById("modal-container");
+        let bc = document.getElementById("body-container");
+        let body = document.getElementById("body");
+  
+        const openModal = function () {
+          mc.classList.toggle("hide");
+          mc.classList.toggle("blur");
+        };
+        const closeModal = function () {
+          mc.classList.toggle("hide");
+          mc.classList.toggle("hide");
+        };
+      </script>
+    </body>
+  </html> -->
