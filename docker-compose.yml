@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: book
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGPORT: 5432
+    healthcheck:
+      test:
+        ["CMD", "pg_isready", "-U", "postgres", "-d", "book", "-h", "localhost"]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 2
+
+    volumes:
+      # - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mylibrary-app:
+    image: mylibrary-app
+    ports:
+      - "13000:3000"
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_NAME=book
