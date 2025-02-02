@@ -5,8 +5,6 @@ import { allInfo } from "../utils/allInfo.js";
 
 let state = [{ title: true }, { rating: true }, { date: true }];
 
-// GET METHODS //
-
 export const getBooks = async (req, res) => {
   const result = await db.query("SELECT * FROM book WHERE email = $1", [
     currentUser.email,
@@ -15,86 +13,6 @@ export const getBooks = async (req, res) => {
     name: currentUser.fullName,
     books: result.rows,
   });
-};
-
-export const filterBook = async (req, res) => {
-  const type = req.query.type;
-  switch (type) {
-    case "title":
-      if (state.type) {
-        let result = await db.query(
-          "SELECT * FROM book WHERE email = $1 ORDER BY title ASC",
-          [currentUser.email]
-        );
-        res.render("index.ejs", {
-          books: result.rows,
-          name: currentUser.fullName,
-        });
-        state.type = false;
-        break;
-      } else {
-        let result = await db.query(
-          "SELECT * FROM book WHERE email = $1 ORDER BY title DESC",
-          [currentUser.email]
-        );
-        res.render("index.ejs", {
-          books: result.rows,
-          name: currentUser.fullName,
-        });
-        state.type = true;
-        break;
-      }
-
-    case "rating":
-      if (state.type) {
-        let result = await db.query(
-          "SELECT * FROM book WHERE email = $1 ORDER BY rating ASC",
-          [currentUser.email]
-        );
-        res.render("index.ejs", {
-          books: result.rows,
-          name: currentUser.fullName,
-        });
-        state.type = false;
-        break;
-      } else {
-        let result = await db.query(
-          "SELECT * FROM book WHERE email = $1 ORDER BY rating DESC",
-          [currentUser.email]
-        );
-        res.render("index.ejs", {
-          books: result.rows,
-          name: currentUser.fullName,
-        });
-        state.type = true;
-        break;
-      }
-
-    case "date":
-      if (state.type) {
-        let result = await db.query(
-          "SELECT * FROM book WHERE email = $1 ORDER BY date ASC",
-          [currentUser.email]
-        );
-        res.render("index.ejs", {
-          books: result.rows,
-          name: currentUser.fullName,
-        });
-        state.type = false;
-        break;
-      } else {
-        let result = await db.query(
-          "SELECT * FROM book WHERE email = $1 ORDER BY date DESC",
-          [currentUser.email]
-        );
-        res.render("index.ejs", {
-          books: result.rows,
-          name: currentUser.fullName,
-        });
-        state.type = true;
-        break;
-      }
-  }
 };
 
 export const getAddBook = (req, res) => {
@@ -110,7 +28,6 @@ export const getUpdateBook = async (req, res) => {
   res.render("../views/update-book.ejs", { books: selectedBook });
 };
 
-// POST METHODS //
 export const postAddBook = async (req, res) => {
   const book = req.body;
   console.log(req.body.user);
@@ -150,4 +67,87 @@ export const postUpdateBook = async (req, res) => {
     ]
   );
   res.redirect("/library");
+};
+
+export const filterBook = async (req, res) => {
+  const type = req.query.type;
+  switch (type) {
+    //Case 1: Sort by title
+    case "title":
+      if (state.type) {
+        let result = await db.query(
+          "SELECT * FROM book WHERE email = $1 ORDER BY title ASC",
+          [currentUser.email]
+        );
+        res.render("index.ejs", {
+          books: result.rows,
+          name: currentUser.fullName,
+        });
+        state.type = false;
+        break;
+      } else {
+        let result = await db.query(
+          "SELECT * FROM book WHERE email = $1 ORDER BY title DESC",
+          [currentUser.email]
+        );
+        res.render("index.ejs", {
+          books: result.rows,
+          name: currentUser.fullName,
+        });
+        state.type = true;
+        break;
+      }
+
+    //Case 2: Sort by rating
+    case "rating":
+      if (state.type) {
+        let result = await db.query(
+          "SELECT * FROM book WHERE email = $1 ORDER BY rating ASC",
+          [currentUser.email]
+        );
+        res.render("index.ejs", {
+          books: result.rows,
+          name: currentUser.fullName,
+        });
+        state.type = false;
+        break;
+      } else {
+        let result = await db.query(
+          "SELECT * FROM book WHERE email = $1 ORDER BY rating DESC",
+          [currentUser.email]
+        );
+        res.render("index.ejs", {
+          books: result.rows,
+          name: currentUser.fullName,
+        });
+        state.type = true;
+        break;
+      }
+
+    //Case 3: Sort by date
+    case "date":
+      if (state.type) {
+        let result = await db.query(
+          "SELECT * FROM book WHERE email = $1 ORDER BY date ASC",
+          [currentUser.email]
+        );
+        res.render("index.ejs", {
+          books: result.rows,
+          name: currentUser.fullName,
+        });
+        state.type = false;
+        break;
+      } else {
+        let result = await db.query(
+          "SELECT * FROM book WHERE email = $1 ORDER BY date DESC",
+          [currentUser.email]
+        );
+        res.render("index.ejs", {
+          books: result.rows,
+          name: currentUser.fullName,
+        });
+        state.type = true;
+        break;
+      }
+  }
 };

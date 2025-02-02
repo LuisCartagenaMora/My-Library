@@ -1,14 +1,12 @@
-import bcrypt from "bcryptjs";
 import db from "../models/db.js";
-import pkg from "passport";
-const { session } = pkg;
-
-const saltRounds = 5;
+import bcrypt from "bcryptjs";
 
 export let currentUser = {
   fullName: "",
   email: "",
 };
+
+const saltRounds = 5;
 
 export const registerUser = async (req, res) => {
   const user = req.body;
@@ -17,7 +15,7 @@ export const registerUser = async (req, res) => {
   ]);
 
   if (existingUser.rows.length > 0) {
-    console.log("This email is already registered.");
+    console.log("This email is already registered. Please log in.");
     return res.redirect("/");
   }
 
@@ -26,7 +24,7 @@ export const registerUser = async (req, res) => {
     "INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)",
     [user.firstname, user.lastname, user.email, hashedPassword]
   );
-
+  console.log("User registered. Please log in.");
   res.redirect("/");
 };
 
@@ -37,7 +35,7 @@ export const loginUser = async (req, res) => {
   ]);
 
   if (result.rows.length === 0) {
-    console.log("User not found.");
+    console.log("User not found. Please register.");
     return res.redirect("/");
   }
 
@@ -45,17 +43,17 @@ export const loginUser = async (req, res) => {
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (!isMatch) {
-    console.log("Incorrect password.");
-
+    console.log("Incorrect password. Please try again.");
     return res.redirect("/");
   }
 
   currentUser.email = user.email;
   currentUser.fullName = `${user.firstname} ${user.lastname}`;
-
+  console.log("Login successful. Welcome back!");
   res.redirect("/library");
 };
 
 export const logoutUser = (req, res) => {
+  console.log("Logout successful. See you next time!");
   res.redirect("/");
 };

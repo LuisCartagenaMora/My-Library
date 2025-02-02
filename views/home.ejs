@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="..\css\home.css" type="text/css" />
+    <link rel="stylesheet" href="\public\css\home.css" type="text/css" />
   </head>
   <body>
     <div class="books">
@@ -124,7 +124,7 @@
     </div>
     <%- include ('partials/footer.ejs') %>
     <script>
-      var copy = document.querySelector(".top-books").cloneNode(true);
+      let copy = document.querySelector(".top-books").cloneNode(true);
       document.querySelector(".books").appendChild(copy);
     </script>
   </body>
